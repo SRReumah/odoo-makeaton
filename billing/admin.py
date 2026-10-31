@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import TaxRule, DiscountRule
 
-# Register your models here.
+admin.site.register(TaxRule)
+admin.site.register(DiscountRule)
