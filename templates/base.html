@@ -5,6 +5,18 @@
   <title>Brightloop</title>
 </head>
 <body>
+  <div style="text-align: right; padding: 10px;">
+    {% if user.is_authenticated %}
+      Logged in as {{ user.email }} | 
+      <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer; padding:0;">Log out</button>
+      </form>
+    {% else %}
+      <a href="{% url 'login' %}">Log in</a>
+    {% endif %}
+  </div>
+  <hr>
   {% if messages %}
     <ul>
       {% for m in messages %}<li>{{ m }}</li>{% endfor %}

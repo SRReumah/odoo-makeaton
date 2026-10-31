@@ -133,3 +133,6 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "accounts.validators.StrongPasswordValidator"},
 ]
+
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "login"
