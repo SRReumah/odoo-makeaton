@@ -6,3 +6,8 @@ class User(AbstractUser):
     ROLES = [("admin", "Admin"), ("staff", "Staff"), ("customer", "Customer")]
     email = models.EmailField(unique=True)
     role = models.CharField(max_length=10, choices=ROLES, default="customer")
+
+    def save(self, *args, **kwargs):
+        if self.is_superuser:
+            self.role = "admin"
+        super().save(*args, **kwargs)

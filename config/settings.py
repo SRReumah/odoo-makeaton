@@ -60,7 +60,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,3 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "accounts.User"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+AUTH_PASSWORD_VALIDATORS = [
+    {"NAME": "accounts.validators.StrongPasswordValidator"},
+]
